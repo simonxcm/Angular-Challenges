@@ -1,33 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-
-import { User } from './user';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
+
 export class RegisterComponent implements OnInit {
 
-  public registerForm: FormGroup;
+  public myForm!: FormGroup;
+  submitted = false;
 
-  public user: User = new User();
+  constructor(private formBuilder: FormBuilder) {}
 
-  constructor() { }
+  get movie() {
+    return this.myForm.controls;
+  }
 
-  ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      firstName: new FormControl(),
-      lastName: new FormControl(),
-      email: new FormControl(),
-      sendCatalog: new FormControl(true)
+  ngOnInit() {
+    this.myForm = this.formBuilder.group({
+      id: ['', Validators.required],
+      title: ['', Validators.required],
+      type: ['', Validators.required],
+      date: ['', [Validators.required, Validators.min(1900), Validators.max(2022)]],
+      bio: ['', Validators.required],
     });
   }
 
-  public saveData(){
-    console.log(this.registerForm);
-    console.log('valeurs: ', JSON.stringify(this.registerForm.value));
-
+  onSubmit() {
+    this.submitted = true;
+    if (!this.myForm.valid) {
+      return;
+    }
+    console.log('New movie registered: ', this.myForm.value);
   }
+
+  /* minDateValidator(minDate: Date): ValidatorFn {
+
+    return (control: AbstractControl): ValidationErrors | null => {
+
+      const date = new Date(control.value);
+      const minDate = 1900;
+
+      if ( date.getTime() < minDate ) {
+        return null;
+      } else {
+        return { 'min': { value: control.value, expected: minDate }};
+      }
+    }
+  };*/
 }
