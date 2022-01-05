@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { DeveloperComponent } from './developer/developer.component';
 import { SkillComponent } from './skill/skill.component';
+import { CreateOnomatopiaComponent } from './create-onomatopia/create-onomatopia.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SkillComponent } from './skill/skill.component';
     RegisterComponent,
     DeveloperComponent,
     SkillComponent,
+    CreateOnomatopiaComponent,
 
   ],
   imports: [

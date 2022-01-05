@@ -1,5 +1,11 @@
 <div class="container mt-5">
 
-<app-developer></app-developer>
+<app-create-onomatopia (sendOnomatopiaToParent)="onReceiveNewOnomatopia($event)"></app-create-onomatopia>
+
+<ul>
+  <li *ngFor="let newOnomatopoia of onomatopoeias">
+  {{ newOnomatopoia }}
+  </li>
+</ul>
 
 </div>

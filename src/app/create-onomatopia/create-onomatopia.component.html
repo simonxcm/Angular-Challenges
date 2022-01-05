@@ -1,0 +1,9 @@
+<form>
+  <div>
+    <label for="newOnomatopia">Add a new onomatopoeia</label>
+    <input type="text" id="newOnomatopia" #newOnomatopia />
+  </div>
+  <button (click)="createOnomatopia(newOnomatopia.value)">
+    Add to the list
+  </button>
+</form>
