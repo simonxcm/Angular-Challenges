@@ -5,16 +5,15 @@ import { CocktailService } from '../cocktail.service';
   selector: 'app-cocktail-list',
   templateUrl: './cocktail-list.component.html',
   styleUrls: ['./cocktail-list.component.scss'],
-  providers: [CocktailService]
 })
 
 export class CocktailListComponent implements OnInit {
 
   constructor(private cocktailService: CocktailService) { }
 
-  cocktailList = [] as any;
+  public cocktailList = [] as any;
 
   ngOnInit(): void {
-    this.cocktailList = this.cocktailService.getCocktails();
+    this.cocktailService.getCocktails().subscribe(localData => this.cocktailList = localData);
   }
 }
