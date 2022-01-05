@@ -1,0 +1,9 @@
+<h1>Cocktail Menu</h1>
+
+<ul class="list-group">
+  <li *ngFor = "let cocktail of cocktailList" class="list-group-info">
+    <h2>{{ cocktail.name }}</h2>
+    <h3>{{ cocktail.price }} €</h3>
+    <div><img src="{{ cocktail.image }}" alt="image"></div>
+  </li>
+</ul>

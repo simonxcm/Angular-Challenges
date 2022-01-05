@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { DeveloperComponent } from './developer/developer.component';
 import { SkillComponent } from './skill/skill.component';
 import { CreateOnomatopiaComponent } from './create-onomatopia/create-onomatopia.component';
+import { CocktailListComponent } from './cocktail-list/cocktail-list.component';
+import { CocktailService } from './cocktail.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { CreateOnomatopiaComponent } from './create-onomatopia/create-onomatopia
     DeveloperComponent,
     SkillComponent,
     CreateOnomatopiaComponent,
+    CocktailListComponent,
 
   ],
   imports: [
@@ -24,7 +27,7 @@ import { CreateOnomatopiaComponent } from './create-onomatopia/create-onomatopia
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CocktailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
