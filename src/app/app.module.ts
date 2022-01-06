@@ -11,6 +11,10 @@ import { SkillComponent } from './skill/skill.component';
 import { CreateOnomatopiaComponent } from './create-onomatopia/create-onomatopia.component';
 import { CocktailListComponent } from './cocktail-list/cocktail-list.component';
 import { CocktailService } from './cocktail.service';
+import { AdminpageComponent } from './adminpage/adminpage.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,9 @@ import { CocktailService } from './cocktail.service';
     SkillComponent,
     CreateOnomatopiaComponent,
     CocktailListComponent,
+    AdminpageComponent,
+    HomepageComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -27,7 +34,8 @@ import { CocktailService } from './cocktail.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
 
   ],
   providers: [CocktailService],
